@@ -19,6 +19,7 @@ export const CartContextProvider = ({children}) => {
             newCart.push(addedItem)
         }
         setCart(newCart)
+        console.log(newCart)
     }
 
     const productsQuantity = () => {
