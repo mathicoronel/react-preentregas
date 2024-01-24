@@ -7,13 +7,13 @@ const CartWidget = () => {
   const {productsQuantity} = useContext(CartContext)
 
   return (
-    <div className='cart-container'>
+    <div className='cart-widget-container'>
       <Link to={"/cart"}>
         <button className='btn-cart'>
           <span className="material-symbols-outlined">
             shopping_cart
           </span>
-          <span className='numero-carrito'>
+          <span className='cart-number'>
             {productsQuantity()}
           </span>
         </button>
