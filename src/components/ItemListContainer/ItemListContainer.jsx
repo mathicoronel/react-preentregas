@@ -19,7 +19,7 @@ const ItemListContainer = () => {
             }));
         setProducts(docs)
         })
-    }, )
+    }, [])
 
     const filteredProducts = products.filter((p) => p.categoria === categoryId)
 

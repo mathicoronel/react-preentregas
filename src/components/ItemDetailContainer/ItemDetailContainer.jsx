@@ -13,11 +13,11 @@ const ItemDetailContainer = () => {
         const oneItem = doc(db, "productos", `${id}`)
         getDoc(oneItem).then((snapshot) => {
             if(snapshot.exists()){
-                const doc = snapshot.data()
+                const doc = {...snapshot.data()}
                 setProduct(doc)
             }
         })
-    })
+    }, [])
 
     return (
     <div>
