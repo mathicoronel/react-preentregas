@@ -5,7 +5,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import { Link } from "react-router-dom";
 import CartWidget from "../Cart/CartWidget";
 
-function ComponenteNavBar() {
+function ComponenteNavbar() {
     return (
     <Navbar expand="lg" className="navbar-container bg-body-tertiary">
         <Container>
@@ -17,6 +17,9 @@ function ComponenteNavBar() {
             <Nav className="me-auto">
                 <Nav.Link href="/">Home</Nav.Link>
                 <NavDropdown title="Categorías" id="basic-nav-dropdown">
+                <Link to="/">
+                    <NavDropdown.Item href="#action/3">Todos los productos</NavDropdown.Item>
+                </Link>
                 <Link to="/category/Running">
                     <NavDropdown.Item href="#action/3.1">Running</NavDropdown.Item>
                 </Link>
@@ -39,4 +42,4 @@ function ComponenteNavBar() {
     );
 }
 
-export default ComponenteNavBar;
+export default ComponenteNavbar;

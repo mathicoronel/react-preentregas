@@ -7,13 +7,13 @@ const ItemDetail = ({ product }) => {
 
     const [itemCount, setItemCount] = useState(1)
 
-    const { cart, setCart, addToCart } = useContext(CartContext)
+    const {addToCart} = useContext(CartContext)
 
-    const addProduct = () => {
+    const addItem = () => {
         setItemCount(itemCount + 1)
     }
 
-    const removeProduct = () => {
+    const removeItem = () => {
         setItemCount(itemCount - 1)
     }
 
@@ -31,9 +31,9 @@ const ItemDetail = ({ product }) => {
                         ${product.precio}
                     </Card.Text>
                     <ItemCount 
-                    handleAgregar={() => {addToCart(product, itemCount) }} 
-                    addProduct={addProduct} 
-                    removeProduct={removeProduct} 
+                    handleAddToCart={() => {addToCart(product, itemCount) }} 
+                    addItem={addItem} 
+                    removeItem={removeItem} 
                     itemCount={itemCount} 
                     setItemCount={setItemCount} />
                 </Card.Body>
