@@ -6,7 +6,7 @@ export const CartContextProvider = ({children}) => {
 
     const firstCart = JSON.parse(localStorage.getItem("cart")) || []
 
-    const [cart, setCart] = useState([])
+    const [cart, setCart] = useState(firstCart)
 
     const addToCart = (product, cantidad) => {
         const addedItem = {...product, cantidad}
