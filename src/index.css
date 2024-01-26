@@ -274,4 +274,57 @@ button:focus-visible {
 
 .empty-cart{
   color: #fff;
+  padding: 0.7rem;
+}
+
+.form-container{
+  text-align: center;
+  border-radius: 5px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  color: #fff;
+  background-color: #787474;
+}
+
+.form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 1rem;
+}
+
+.name-form{
+  width: 150px;
+  text-align: center;
+  border-radius: 5px;
+  border: none;
+  height: 30px;
+}
+
+.email-form{
+  width: 300px;
+  text-align: center;
+  border-radius: 5px;
+  border: none;
+  height: 30px;
+}
+
+.identificator-container{
+  border: 1px solid #fff;
+  border-radius: 5px;
+  padding: 1rem;
+  background-color: #969696;
+  color: #000;
+}
+
+.order-id{
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.spinner{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
