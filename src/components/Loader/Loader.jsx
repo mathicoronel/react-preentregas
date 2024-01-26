@@ -2,11 +2,11 @@ import React from 'react'
 
 const Loader = () => {
     return (
-        <div>
-            <div class="spinner-border" role="status">
-            <span class="visually-hidden">Loading...</span>
-            </div>
+      <div className='spinner'>
+        <div class="spinner-grow m-5" role="status">
+          <span class="visually-hidden">Loading...</span>
         </div>
+      </div>
     );
 }
 
