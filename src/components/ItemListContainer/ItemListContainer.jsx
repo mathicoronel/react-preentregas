@@ -24,8 +24,7 @@ const ItemListContainer = () => {
             setProducts(docs)
             setLoading(false)
             })
-        }, 2500);
-
+        }, 600);
     }, [])
 
     if(loading) {

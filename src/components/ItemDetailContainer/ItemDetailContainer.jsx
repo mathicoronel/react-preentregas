@@ -17,14 +17,14 @@ const ItemDetailContainer = () => {
         setTimeout(() => {
             getDoc(oneItem).then((snapshot) => {
                 if(snapshot.exists()){
-                    const doc = {...snapshot.data()}
-                    setProduct(doc)
+                    const doc = snapshot.data()
+                    setProduct({...doc, id: id})
                     setLoading(false)
                 }
             })
-        }, 1000);
+        }, 700);
 
-    }, [])
+    }, [id])
 
     if(loading) {
         return <Loader />

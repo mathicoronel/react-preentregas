@@ -4,9 +4,9 @@ const ItemCount = ({addItem, removeItem, itemCount, setItemCount, handleAddToCar
 
     return (
         <div className='add-product-container'>
-            {itemCount >= 1 ? <button className='add-button' onClick={removeItem}>-</button> : setItemCount(1)}
+            {itemCount >= 1 ? <button className='remove-button' onClick={removeItem}>-</button> : setItemCount(1)}
             <button onClick={handleAddToCart} className='add-product'>Agregar {itemCount} al carrito</button>
-            <button className='remove-button' onClick={addItem}>+</button>
+            <button className='add-button' onClick={addItem}>+</button>
         </div>
     )
 }
