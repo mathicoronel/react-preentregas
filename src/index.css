@@ -107,7 +107,12 @@ button:focus-visible {
 }
 
 .navbar-light .navbar-nav .nav-link {
-  color: #fff;
+  color: #000;
+  font-size: 1.2rem;
+}
+
+.nav-link:hover{
+  color: #fff !important;
 }
 
 .card-container{
@@ -284,6 +289,7 @@ button:focus-visible {
   margin-bottom: 1rem;
   color: #fff;
   background-color: #787474;
+  margin: 1rem 2rem;
 }
 
 .form{
@@ -292,6 +298,11 @@ button:focus-visible {
   align-items: center;
   gap: 1rem;
   padding-bottom: 1rem;
+}
+
+.form-title{
+  text-align: center;
+  padding: 1rem;
 }
 
 .name-form{
@@ -307,6 +318,14 @@ button:focus-visible {
   text-align: center;
   border-radius: 5px;
   border: none;
+  height: 30px;
+}
+
+.confirm-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   height: 30px;
 }
 
@@ -327,4 +346,34 @@ button:focus-visible {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.buttons-container{
+  display: flex;
+  justify-content: space-between;
+}
+
+.summary-title{
+  font-weight: 600;
+  padding-top: 0.5rem;
+}
+
+.summary-container{
+  background-color: #787474;
+  color: #fff;
+  font-weight: 600;
+  margin: 1rem 2rem;
+  padding: 0.1rem 1rem;
+  border-radius: 5px;
+}
+
+.summary-price{
+  display: flex;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  background-color: #242424;
+  width: fit-content;
+  border-radius: 5px;
 }

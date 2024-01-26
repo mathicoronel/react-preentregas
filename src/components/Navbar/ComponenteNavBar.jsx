@@ -15,8 +15,8 @@ function ComponenteNavbar() {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-                <Nav.Link href="/">Home</Nav.Link>
-                <NavDropdown title="Categorías" id="basic-nav-dropdown">
+                <Nav.Link className="navlink-home" href="/">Home</Nav.Link>
+                <NavDropdown title="Categorías" className="dropdown-navbar" id="basic-nav-dropdown">
                 <Link to="/">
                     <NavDropdown.Item href="#action/3">Todos los productos</NavDropdown.Item>
                 </Link>
