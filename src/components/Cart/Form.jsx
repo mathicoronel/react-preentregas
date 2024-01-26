@@ -49,7 +49,7 @@ const Form = () => {
                 <form action="submit" className='form' onSubmit={sendOrder}>
                     <input type="text" placeholder='Nombre' className='name-form' onChange={(e) => setName(e.target.value)} value={name}/>
                     <input type="email" placeholder='Email' className='email-form' onChange={(e) => setEmail(e.target.value)} value={email}/>
-                    <button className='confirm-button' type='submit'>Enviar</button>
+                    <button className='send-button' type='submit'>Enviar</button>
                 </form>
                 <div className='identificator-container'>
                     <h4>Aquí aparecerá el identificador de tu pedido</h4>

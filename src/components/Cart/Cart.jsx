@@ -29,9 +29,9 @@ const Cart = () => {
         : <h3 className='empty-cart'>Tu carrito está vacío</h3>}
       </div>
         <div className='buttons-container'>
-          {cart.length > 0 && <button onClick={clear}>Vaciar carrito</button>}
+          {cart.length > 0 && <button className='clear-cart' onClick={clear}>Vaciar carrito</button>}
           <Link to={"/form"}>
-            {cart.length > 0 && <button onClick={formVisibility}>Confirmar compra</button> }
+            {cart.length > 0 && <button className='confirm-button' onClick={formVisibility}>Confirmar compra</button> }
           </Link>
       </div>
     </div>

@@ -282,6 +282,20 @@ button:focus-visible {
   padding: 0.7rem;
 }
 
+.confirm-button:hover{
+  color: #000;
+  background-color: #a8dadc;
+  transition: all 0.2s;
+  border-color: #a8dadc;
+}
+
+.clear-cart:hover{
+  color: #000;
+  background-color: #a8dadc;
+  transition: all 0.2s;
+  border-color: #a8dadc;
+}
+
 .form-container{
   text-align: center;
   border-radius: 5px;
@@ -321,7 +335,7 @@ button:focus-visible {
   height: 30px;
 }
 
-.confirm-button{
+.send-button{
   display: flex;
   justify-content: center;
   align-items: center;
