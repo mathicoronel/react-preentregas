@@ -1,5 +1,4 @@
 import { createContext, useEffect, useState } from "react";
-import Form from "../components/Cart/Form";
 
 export const CartContext = createContext(null)
 
@@ -7,7 +6,6 @@ const firstCart = JSON.parse(localStorage.getItem("cart")) || []
 
 export const CartContextProvider = ({children}) => {
     const [cart, setCart] = useState(firstCart)
-    const [form, setForm] = useState(false)
 
     const addToCart = (product, cantidad) => {
         const addedItem = {...product, cantidad}
@@ -38,18 +36,13 @@ export const CartContextProvider = ({children}) => {
         setForm(false)
     }
 
-    const formVisibility = () => {
-        setForm(!form) 
-    }
-
     useEffect(() => {
         localStorage.setItem("cart", JSON.stringify(cart))
     }, [cart])
 
     return(
-        <CartContext.Provider value={{cart, setCart, addToCart, totalPrice, productsQuantity, clear, formVisibility}}>
+        <CartContext.Provider value={{cart, setCart, addToCart, totalPrice, productsQuantity, clear}}>
             {children}
-            {form && <Form />}
         </CartContext.Provider>
     )
 }

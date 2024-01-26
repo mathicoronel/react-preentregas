@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import CartContext from '../../context/CartContext'
-import Form from './Form'
+import { Link } from 'react-router-dom'
 
 const Cart = () => {
 
@@ -30,7 +30,9 @@ const Cart = () => {
       </div>
         <div className='buttons-container'>
           {cart.length > 0 && <button onClick={clear}>Vaciar carrito</button>}
-          {cart.length > 0 && <button onClick={formVisibility}>Confirmar compra</button> }
+          <Link to={"/form"}>
+            {cart.length > 0 && <button onClick={formVisibility}>Confirmar compra</button> }
+          </Link>
       </div>
     </div>
   )
