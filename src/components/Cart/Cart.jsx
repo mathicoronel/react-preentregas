@@ -24,11 +24,16 @@ const Cart = () => {
       }
 
       <div className='total-price-container'>
-        {cart.length !== 0 ?
-        (<h3 className='total-price'>Total: ${totalPrice()}</h3> && <Form />)
+        {cart.length > 0 ?
+        (<h3 className='total-price'>Total: ${totalPrice()}</h3>)
         : <h3 className='empty-cart'>Tu carrito está vacío</h3>}
       </div>
-      {cart.length !== 0 ? <button onClick={clear}>Vaciar carrito</button> : <></>}
+      <div>
+        {
+          cart.length > 0 && <Form />
+        }
+      {cart.length > 0 && <button onClick={clear}>Vaciar carrito</button>}
+      </div>
     </div>
   )
 }
