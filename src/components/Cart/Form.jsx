@@ -27,7 +27,24 @@ const Form = () => {
         const ordersCollection = collection(db, "orden")
 
     return (
-        <div className='form-container'>
+        <div>
+            <h1 className='form-title'>Finalizar compra</h1>
+            <div className='summary-container'>
+                <h5 className='summary-title'>Resumen:</h5>
+                {
+                    cart.map((p) => {
+                        return (
+                            <div className='summary-products' key={p.id}>
+                                <span>({p.cantidad}) {p.nombre}</span>
+                            </div>
+                        )
+                    })
+                }
+                <span className='summary-price'>
+                    Total: ${totalPrice()}
+                </span>
+            </div>
+            <div className='form-container'>
             <h3>Ingresa tus datos para finalizar la compra</h3>
                 <form action="submit" className='form' onSubmit={sendOrder}>
                     <input type="text" placeholder='Nombre' className='name-form' onChange={(e) => setName(e.target.value)} value={name}/>
@@ -38,6 +55,7 @@ const Form = () => {
                     <h4>Aquí aparecerá el identificador de tu pedido</h4>
                     <span className='order-id'>{orderId}</span>
                 </div>
+            </div>
         </div>
     )
 }
