@@ -4,7 +4,7 @@ import Form from './Form'
 
 const Cart = () => {
 
-  const {cart, totalPrice, clear} = useContext(CartContext)
+  const {cart, totalPrice, clear, formVisibility} = useContext(CartContext)
 
   return (
     <div className='cart-container'>
@@ -28,11 +28,9 @@ const Cart = () => {
         (<h3 className='total-price'>Total: ${totalPrice()}</h3>)
         : <h3 className='empty-cart'>Tu carrito está vacío</h3>}
       </div>
-      <div>
-        {
-          cart.length > 0 && <Form />
-        }
-      {cart.length > 0 && <button onClick={clear}>Vaciar carrito</button>}
+        <div className='buttons-container'>
+          {cart.length > 0 && <button onClick={clear}>Vaciar carrito</button>}
+          {cart.length > 0 && <button onClick={formVisibility}>Confirmar compra</button> }
       </div>
     </div>
   )
