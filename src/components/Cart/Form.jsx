@@ -27,8 +27,11 @@ const Form = () => {
 
         const ordersCollection = collection(db, "orden")
 
+    const showId = () => {
+        return <span className='order-id'>{orderId}</span>
+    }
+
     const confirmOrder = () => {
-        if(name !== "" && email.includes("@")) {
             Swal.fire({
                 title: "¿Quieres confirmar tu compra?",
                 text: "Recibirás el ID de la misma",
@@ -40,22 +43,13 @@ const Form = () => {
                 }).then((result) => {
                     if(result.isConfirmed) {
                         Swal.fire({
-                            title: "¡Muchas gracias por tu compra!",
-                            text: `Tu ID es: ${orderId}`,
+                            title: "¡Muchas gracias por tu compra!"
                         })
-                        setCart([])
-                        setName("")
-                        setEmail("")
                     }
+                    setName("")
+                    setEmail("")
+                    setCart([])
                 })
-            } else {
-                Swal.fire({
-                    title: "Error",
-                    text: "Ingresa tu nombre y un correo electrónico válido",
-                    icon: "error",
-                    confirmButtonText: "Ok"
-                })
-            }
         }
 
     return (
@@ -83,6 +77,10 @@ const Form = () => {
                     <input type="email" placeholder='Email' className='email-form' onChange={(e) => setEmail(e.target.value)} value={email}/>
                     <button className='send-button' onClick={confirmOrder} type='submit'>Enviar</button>
                 </form>
+                <div className='identificator-container'>
+                    <h4>Aquí aparecerá tu ID </h4>
+                    {showId()}
+                </div>
             </div>
         </div>
     )
