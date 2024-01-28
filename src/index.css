@@ -336,11 +336,19 @@ button:focus-visible {
 }
 
 .send-button{
+  border: none;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   height: 30px;
+  transition: all 0.2s;
+}
+
+.send-button:hover{
+  background-color: #a8dadc;
+  color: #000;
+  transition: all 0.2s;
 }
 
 .identificator-container{

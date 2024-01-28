@@ -1,13 +1,14 @@
 import React, { useContext, useState } from 'react'
 import {collection, addDoc, getFirestore} from "firebase/firestore"
 import CartContext from '../../context/CartContext'
+import Swal from 'sweetalert2'
 
 const Form = () => {
 
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [orderId, setOrderId] = useState("")
-    const {cart, totalPrice} = useContext(CartContext)
+    const {cart, setCart, totalPrice} = useContext(CartContext)
 
     const db = getFirestore()
 
@@ -25,6 +26,28 @@ const Form = () => {
         }
 
         const ordersCollection = collection(db, "orden")
+
+        const confirmOrder = () => {
+            Swal.fire({
+                title: "¿Quieres confirmar tu compra?",
+                text: "Recibirás el ID de la misma",
+                icon: "question",
+                showConfirmButton: true,
+                showDenyButton: true,
+                confirmButtonText: "Si",
+                denyButtonText: "No"
+                }).then((result) => {
+                    if(result.isConfirmed) {
+                        Swal.fire({
+                            title: "¡Muchas gracias por tu compra!",
+                            text: `Tu ID es: ${orderId}`,
+                        })
+                        setCart([])
+                        setName("")
+                        setEmail("")
+                    }
+                })
+        }
 
     return (
         <div>
@@ -49,12 +72,8 @@ const Form = () => {
                 <form action="submit" className='form' onSubmit={sendOrder}>
                     <input type="text" placeholder='Nombre' className='name-form' onChange={(e) => setName(e.target.value)} value={name}/>
                     <input type="email" placeholder='Email' className='email-form' onChange={(e) => setEmail(e.target.value)} value={email}/>
-                    <button className='send-button' type='submit'>Enviar</button>
+                    <button className='send-button' onClick={confirmOrder}  type='submit'>Enviar</button>
                 </form>
-                <div className='identificator-container'>
-                    <h4>Aquí aparecerá el identificador de tu pedido</h4>
-                    <span className='order-id'>{orderId}</span>
-                </div>
             </div>
         </div>
     )
