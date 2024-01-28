@@ -1,13 +1,48 @@
 import { createContext, useEffect, useState } from "react";
+import Swal from "sweetalert2";
+import { toast, Bounce } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const CartContext = createContext(null)
 
 const firstCart = JSON.parse(localStorage.getItem("cart")) || []
 
 export const CartContextProvider = ({children}) => {
+
     const [cart, setCart] = useState(firstCart)
 
+    const deleteCartMessage = () => {
+        Swal.fire({
+        title: "¿Quieres eliminar tu carrito?",
+        text: "Esto eliminará todos tus productos",
+        icon: "question",
+        showConfirmButton: true,
+        showDenyButton: true,
+        confirmButtonText: "Eliminar",
+        denyButtonText: "No quiero eliminarlo"
+        }).then((result) => {
+            if(result.isConfirmed) {
+                setCart([])
+                Swal.fire("Carrito eliminado", "", "success")
+            }
+        })
+    }
+
     const addToCart = (product, cantidad) => {
+        const addedToCart = () => {
+            toast.success(`${product.nombre} agregado al carrito`, {
+                position: "top-right",
+                autoClose: 800,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                transition: Bounce,
+                });
+        }
+
         const addedItem = {...product, cantidad}
 
         const newCart = [...cart]
@@ -15,8 +50,10 @@ export const CartContextProvider = ({children}) => {
         const isInCart = newCart.find((p) => p.id === addedItem.id)
 
         if(isInCart) {
+            addedToCart()
             isInCart.cantidad += cantidad
         } else {
+            addedToCart()
             newCart.push(addedItem)
         }
         setCart(newCart)
@@ -32,8 +69,7 @@ export const CartContextProvider = ({children}) => {
     }
 
     const clear = () => {
-        setCart([])
-        setForm(false)
+        deleteCartMessage()
     }
 
     useEffect(() => {
