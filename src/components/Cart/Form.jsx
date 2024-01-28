@@ -27,7 +27,8 @@ const Form = () => {
 
         const ordersCollection = collection(db, "orden")
 
-        const confirmOrder = () => {
+    const confirmOrder = () => {
+        if(name !== "" && email.includes("@")) {
             Swal.fire({
                 title: "¿Quieres confirmar tu compra?",
                 text: "Recibirás el ID de la misma",
@@ -47,6 +48,14 @@ const Form = () => {
                         setEmail("")
                     }
                 })
+            } else {
+                Swal.fire({
+                    title: "Error",
+                    text: "Ingresa tu nombre y un correo electrónico válido",
+                    icon: "error",
+                    confirmButtonText: "Ok"
+                })
+            }
         }
 
     return (
@@ -72,7 +81,7 @@ const Form = () => {
                 <form action="submit" className='form' onSubmit={sendOrder}>
                     <input type="text" placeholder='Nombre' className='name-form' onChange={(e) => setName(e.target.value)} value={name}/>
                     <input type="email" placeholder='Email' className='email-form' onChange={(e) => setEmail(e.target.value)} value={email}/>
-                    <button className='send-button' onClick={confirmOrder}  type='submit'>Enviar</button>
+                    <button className='send-button' onClick={confirmOrder} type='submit'>Enviar</button>
                 </form>
             </div>
         </div>
