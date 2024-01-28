@@ -19,7 +19,7 @@ export const CartContextProvider = ({children}) => {
         showConfirmButton: true,
         showDenyButton: true,
         confirmButtonText: "Eliminar",
-        denyButtonText: "No quiero eliminarlo"
+        denyButtonText: "No eliminar"
         }).then((result) => {
             if(result.isConfirmed) {
                 setCart([])
@@ -32,10 +32,10 @@ export const CartContextProvider = ({children}) => {
         const addedToCart = () => {
             toast.success(`${product.nombre} agregado al carrito`, {
                 position: "top-right",
-                autoClose: 800,
+                autoClose: 900,
                 hideProgressBar: false,
                 closeOnClick: true,
-                pauseOnHover: true,
+                pauseOnHover: false,
                 draggable: true,
                 progress: undefined,
                 theme: "dark",

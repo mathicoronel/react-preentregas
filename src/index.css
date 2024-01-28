@@ -91,6 +91,14 @@ button:focus-visible {
   align-items: center;
   font-size: 1.4rem;
   padding: 0.5rem;
+  transition: all 0.2s;
+}
+
+.btn-cart:hover{
+  background-color: #fff;
+  border-color: #000;
+  color: #000;
+  transition: all 0.2s;
 }
 
 .cart-number{
@@ -282,18 +290,26 @@ button:focus-visible {
   padding: 0.7rem;
 }
 
+.confirm-button{
+  transition: all 0.2s;
+}
+
 .confirm-button:hover{
   color: #000;
-  background-color: #a8dadc;
+  background-color: #fff;
   transition: all 0.2s;
-  border-color: #a8dadc;
+  border-color: #000;
+}
+
+.clear-cart{
+  transition: all 0.2s;
 }
 
 .clear-cart:hover{
   color: #000;
-  background-color: #a8dadc;
+  background-color: #fff;
   transition: all 0.2s;
-  border-color: #a8dadc;
+  border-color: #000;
 }
 
 .form-container{
@@ -342,7 +358,6 @@ button:focus-visible {
   align-items: center;
   text-align: center;
   height: 40px;
-  margin-top: 0.5rem;
   transition: all 0.2s;
 }
 
@@ -360,7 +375,7 @@ button:focus-visible {
 }
 
 .order-id{
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: 700;
 }
 

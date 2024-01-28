@@ -27,29 +27,14 @@ const Form = () => {
 
         const ordersCollection = collection(db, "orden")
 
-    const showId = () => {
-        return <span className='order-id'>{orderId}</span>
-    }
-
     const confirmOrder = () => {
             Swal.fire({
-                title: "¿Quieres confirmar tu compra?",
-                text: "Recibirás el ID de la misma",
-                icon: "question",
-                showConfirmButton: true,
-                showDenyButton: true,
-                confirmButtonText: "Si",
-                denyButtonText: "No"
-                }).then((result) => {
-                    if(result.isConfirmed) {
-                        Swal.fire({
-                            title: "¡Muchas gracias por tu compra!"
-                        })
-                    }
-                    setName("")
-                    setEmail("")
-                    setCart([])
+                title: "Muchas gracias por tu compra",
+                icon: "success",
                 })
+            setName("")
+            setEmail("")
+            setCart([])
         }
 
     return (
@@ -79,7 +64,11 @@ const Form = () => {
                 </form>
                 <div className='identificator-container'>
                     <h4>Aquí aparecerá tu ID </h4>
-                    {showId()}
+                    {orderId && 
+                        <>
+                            <span className='order-id'>{orderId}</span>
+                        </>
+                    }
                 </div>
             </div>
         </div>
