@@ -17,6 +17,8 @@ En el mismo podemos ver una tienda de zapatillas las cuales están divididas por
 <p>- Bootstrap</p>
 <p>- React Bootstrap</p>
 <p>- Firebase</p>
+<p>- SweetAlert2</p>
+<p>- React Toastify</p>
 <br/>
 
 ### Aquí dejo un GIF mostrando la navegabilidad y funcionamiento de la página, demostrando lo anteriormente mencionado
